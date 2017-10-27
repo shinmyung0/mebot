@@ -5,17 +5,17 @@ import {StyleSheet, css} from 'aphrodite';
 export default function AppFrame(props) {
 
 
-    const frameBorder = props.border ? props.border : '1px solid grey';
+    const frameBorder = props.border ? props.border : '1px solid #e0e0e0';
 
     const style = StyleSheet.create({
         frame: {
             border: frameBorder,
             height: '100vh',
             display: 'grid',
-            gridTemplateColumns: '80% 20%',
+            gridAutoColumns: '1fr minmax(200px, 0.4fr)',
             gridTemplateRows: '90% 10%',
             gridTemplateAreas: '"dialog info" "input info"',
-            '@media (max-aspect-ratio: 1/1)': {
+            '@media (max-aspect-ratio: 16/13)': {
                 gridTemplateColumns: '100%',
                 gridTemplateRows: '20% 75% 5%',
                 gridTemplateAreas: ' "info" "dialog" "input"'
@@ -24,8 +24,7 @@ export default function AppFrame(props) {
         },
         infoSection: {
             border: frameBorder,
-            gridArea: 'info',
-            minWidth: '400px'
+            gridArea: 'info'
         },
         dialogSection: {
             border: frameBorder,
