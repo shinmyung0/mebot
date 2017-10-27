@@ -14,12 +14,18 @@ export default function AppFrame(props) {
             display: 'grid',
             gridTemplateColumns: '80% 20%',
             gridTemplateRows: '90% 10%',
-            gridTemplateAreas: '"dialog info" "input info"'
+            gridTemplateAreas: '"dialog info" "input info"',
+            '@media (max-aspect-ratio: 1/1)': {
+                gridTemplateColumns: '100%',
+                gridTemplateRows: '20% 75% 5%',
+                gridTemplateAreas: ' "info" "dialog" "input"'
+            }
             
         },
         infoSection: {
             border: frameBorder,
-            gridArea: 'info'
+            gridArea: 'info',
+            minWidth: '400px'
         },
         dialogSection: {
             border: frameBorder,
