@@ -12,8 +12,9 @@
     "@storybook/react": "^3.2.13"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "link": "rm -f node_modules/src && ln -s ../src node_modules/src",
+    "start": "yarn run link && react-scripts start",
+    "build": "yarn run link && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",

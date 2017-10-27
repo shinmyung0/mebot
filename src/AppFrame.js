@@ -1,30 +1,31 @@
 import React from 'react';
 import {StyleSheet, css} from 'aphrodite';
-
+import {OnMobileQuery} from 'src/utils/constants.js';
 
 export default function AppFrame(props) {
 
 
-    const frameBorder = props.border ? props.border : '1px solid #e0e0e0';
+    const frameBorder = props.border ? props.border : '0';
 
     const style = StyleSheet.create({
         frame: {
             border: frameBorder,
             height: '100vh',
             display: 'grid',
-            gridAutoColumns: '1fr minmax(200px, 0.4fr)',
+            gridAutoColumns: '1fr minmax(200px, 0.3fr)',
             gridTemplateRows: '90% 10%',
             gridTemplateAreas: '"dialog info" "input info"',
-            '@media (max-aspect-ratio: 16/13)': {
+            [OnMobileQuery]: {
                 gridTemplateColumns: '100%',
-                gridTemplateRows: '20% 75% 5%',
+                gridTemplateRows: '10% 80% 10%',
                 gridTemplateAreas: ' "info" "dialog" "input"'
             }
             
         },
         infoSection: {
             border: frameBorder,
-            gridArea: 'info'
+            gridArea: 'info',
+            boxShadow: '15px 0 40px'
         },
         dialogSection: {
             border: frameBorder,
