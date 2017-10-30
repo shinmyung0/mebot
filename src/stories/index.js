@@ -10,17 +10,14 @@ import LONGTEXT  from './fixtures';
 
 
 // Components to test
-import AppFrame from '../AppFrame';
-import MeBot from '../MeBot';
+import App from '../App';
+import MeBot from '../App/MeBot';
 
 
-storiesOf('AppFrame', module)
-  .add('with MeBot', () => <AppFrame BotSection={<MeBot />} />)
-  .add('with MeBot short response', () => <AppFrame BotSection={<MeBot response={'Hello there!'} />} />)
-  .add('with MeBot long response', () => <AppFrame
-                                                  BotSection={<MeBot response={LONGTEXT} />} 
-                                                />)
-
+storiesOf('App', module)
+  .add('with defaults', () => <App />)
+  .add('with trace set to true', () => <App trace={true} />);
+  
 storiesOf('MeBot', module)
   .add('with no response', () => <MeBot />)
   .add('with short text response', () => <MeBot response={'Hello there!'} />)

@@ -35,7 +35,10 @@ export default function AppFrame(props) {
 
         },
         inputSection: {
-            border: frameBorder
+            border: frameBorder,
+            display: 'grid',
+            justifyItems: 'center',
+            alignItems: 'top'
         }
     });
 
