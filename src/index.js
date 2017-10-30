@@ -6,4 +6,4 @@ import InfoSectionView from './InfoSectionView';
 
 
 ReactDOM.render(<AppFrame infoSection={<InfoSectionView />}/>, document.getElementById('root'));
-// register();
+register();
