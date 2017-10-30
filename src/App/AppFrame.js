@@ -17,7 +17,7 @@ export default function AppFrame(props) {
         frame: {
             minHeight: '60vh',
             width: '70vw',
-            minWidth: '500px',
+            minWidth: '400px',
             border: frameBorder,
             display: 'grid',
             gridTemplateRows: '0.8fr minmax(10%, 0.3fr)',

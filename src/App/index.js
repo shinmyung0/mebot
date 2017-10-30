@@ -7,12 +7,12 @@ import InputSection from './InputSection';
 export default function App(props) {
 
     const traceBorder = props.trace ? '1px dotted red' : null;
-
+    
 
     return (
         <AppFrame 
             border={traceBorder} 
-            BotSection={<MeBot/>}
+            BotSection={<MeBot response={props.startingText}/>}
             InputSection={<InputSection />}                    
         />
     );

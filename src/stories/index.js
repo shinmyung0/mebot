@@ -16,6 +16,7 @@ import MeBot from '../App/MeBot';
 
 storiesOf('App', module)
   .add('with defaults', () => <App />)
+  .add('with starting text', () => <App startingText='Hello there!  My name is Shin Yoon and I am a software engineer. Ask me anything!'/>)
   .add('with trace set to true', () => <App trace={true} />);
   
 storiesOf('MeBot', module)

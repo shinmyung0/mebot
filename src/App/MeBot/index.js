@@ -12,7 +12,7 @@ export default function MeBot(props) {
             maxWidth: '70%',
             maxHeight: '100%',
             [constants.OnMobileQuery]: {
-                maxWidth: '85%'
+                maxWidth: '95%'
             }
         },
     })
