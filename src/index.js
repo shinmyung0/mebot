@@ -2,8 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import register from './registerServiceWorker';
 import AppFrame from './AppFrame';
-import InfoSectionView from './InfoSectionView';
+import MeBot from './MeBot';
 
 
-ReactDOM.render(<AppFrame infoSection={<InfoSectionView />}/>, document.getElementById('root'));
+import LONGTEXT from './stories/fixtures';
+
+
+
+ReactDOM.render(<AppFrame 
+                    border={'1px dotted red'} 
+                    BotSection={<MeBot/>}
+                />, document.getElementById('root'));
 register();

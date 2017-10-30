@@ -8,46 +8,47 @@ export default function AppFrame(props) {
     const frameBorder = props.border ? props.border : '0';
 
     const style = StyleSheet.create({
-        frame: {
+        wrapper: {
             border: frameBorder,
-            height: '100vh',
             display: 'grid',
-            gridAutoColumns: '1fr minmax(200px, 0.3fr)',
-            gridTemplateRows: '90% 10%',
-            gridTemplateAreas: '"dialog info" "input info"',
+            justifyItems: 'center',
+            alignItems: 'center'
+        },
+        frame: {
+            minHeight: '60vh',
+            width: '70vw',
+            minWidth: '500px',
+            border: frameBorder,
+            display: 'grid',
+            gridTemplateRows: '0.8fr minmax(10%, 0.3fr)',
+            gridTemplateColumns: '100%',
             [OnMobileQuery]: {
-                gridTemplateColumns: '100%',
-                gridTemplateRows: '10% 80% 10%',
-                gridTemplateAreas: ' "info" "dialog" "input"'
+                height: '100vh',
+                width: '100vw'
             }
-            
         },
-        infoSection: {
+        botSection: {
             border: frameBorder,
-            gridArea: 'info',
-            boxShadow: '15px 0 40px'
-        },
-        dialogSection: {
-            border: frameBorder,
-            gridArea: 'dialog'
+            display: 'grid',
+            justifyItems: 'center',
+            alignItems: 'center'
+
         },
         inputSection: {
-            border: frameBorder,
-            gridArea: 'input'
+            border: frameBorder
         }
     });
 
 
     return (
-        <div className={css(style.frame)}>
-            <div className={css(style.infoSection)}>
-                {props.infoSection}
-            </div>
-            <div className={css(style.dialogSection)}>
-                {props.dialogSection}
-            </div>
-            <div className={css(style.inputSection)}>
-                {props.inputSection}
+        <div className={css(style.wrapper)}>
+            <div className={css(style.frame)}>
+                <div className={css(style.botSection)}>
+                    {props.BotSection}
+                </div>
+                <div className={css(style.inputSection)}>
+                    {props.InputSection}
+                </div>
             </div>
         </div>
     )

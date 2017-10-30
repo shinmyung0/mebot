@@ -1,5 +1,5 @@
 // Main breakpoint
-export const OnMobileQuery = "@media (max-aspect-ratio: 16/13)";
+export const OnMobileQuery = "@media (max-aspect-ratio: 1/1)";
 
 // Color Palette - Material Design
 export const primaryColor = "#00bcd4";
