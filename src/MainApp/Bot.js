@@ -52,11 +52,9 @@ function LinkBubbles(prop) {
             display: 'grid',
             alignItems: 'center',
             justifyItems: 'center',
-            transition: 'all 0.3s cubic-bezier(.25,.8,.25,1)',
+            transition: 'all 0.2s cubic-bezier(.25,.8,.25,1)',
             ':hover': {
-                boxShadow: '0 10px 20px rgba(0,0,0,0.20), 0 5px 15px rgba(0,0,0,0.17)',
-                width: '3.5em',
-                height: '3.5em'
+                boxShadow: '0 8px 15px rgba(0,0,0,0.20), 0 5px 13px rgba(0,0,0,0.17)',
             }
         },
         linkedInIcon: {
