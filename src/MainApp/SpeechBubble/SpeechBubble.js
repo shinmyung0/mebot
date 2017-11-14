@@ -27,16 +27,18 @@ export default function SpeechBubble(props) {
             paddingLeft: '1em',
             borderRadius: '0.5em',
             margin: 0
+        },
+        hidden: {
+            display: 'none'
         }
     })
 
-    var defaultMessage = 'Welcome to my website! Please check out the links below, or ask me something!';
-    var message = props.message ? props.message : defaultMessage;
 
     return (
-        <div className={css(styles.wrapper)}>
+        <div className={css(styles.wrapper, 
+                            !props.response && styles.hidden)}>
             <p className={css(styles.bubble)}>
-                {message}
+                {props.response}
             </p>
             <div className={css(styles.bottomArrow)}>
             </div>

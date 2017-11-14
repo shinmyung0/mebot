@@ -6,7 +6,7 @@ import SpeechBubble from './SpeechBubble/SpeechBubble';
 import LinkBubbles from './LinkBubbles/LinkBubbles';
 
 
-export default function Bot(prop) {
+export default function Bot(props) {
     
     const styles = StyleSheet.create({
         wrapper: {
@@ -19,9 +19,9 @@ export default function Bot(prop) {
     
     return (
         <div className={css(styles.wrapper)}>
-            <SpeechBubble />
+            <SpeechBubble response={props.message} />
             <ProfileBubble />
-            <LinkBubbles />
+            <LinkBubbles shown={props.showLinks}/>
         </div>
     )
 }

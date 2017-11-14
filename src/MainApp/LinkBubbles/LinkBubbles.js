@@ -8,7 +8,7 @@ import chatIcon from './icons/chat-icon.png';
 
 
 
-export default function LinkBubbles(prop) {
+export default function LinkBubbles(props) {
     
     const styles = StyleSheet.create({
         wrapper: {
@@ -35,6 +35,9 @@ export default function LinkBubbles(prop) {
         },
         chatIcon: {
             width: '55%'
+        },
+        hidden: {
+            display: 'none'
         }
     });
 
@@ -43,7 +46,7 @@ export default function LinkBubbles(prop) {
     const githubLink = 'https://github.com/shinmyung0';
 
     return (
-        <div className={css(styles.wrapper)}>
+        <div className={css(styles.wrapper, !props.shown && styles.hidden)}>
             <LinkItem alt='linkedInIcon' iconImg={linkedInIcon} link={linkedInLink} iconWidth='65%' />
             <LinkItem alt='mediumIcon' iconImg={mediumIcon} link={mediumLink} iconWidth='65%' />
             <LinkItem alt='githubIcon' iconImg={githubIcon} link={githubLink} iconWidth='70%' />

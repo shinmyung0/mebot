@@ -10,16 +10,9 @@ import LONGTEXT  from './fixtures';
 
 
 // Components to test
-import App from '../App';
-import MeBot from '../App/MeBot';
+import Bot from '../MainApp/Bot';
 
 
-storiesOf('App', module)
-  .add('with defaults', () => <App />)
-  .add('with starting text', () => <App startingText='Hello there!  My name is Shin Yoon and I am a software engineer. Ask me anything!'/>)
-  .add('with trace set to true', () => <App trace={true} />);
-  
-storiesOf('MeBot', module)
-  .add('with no response', () => <MeBot />)
-  .add('with short text response', () => <MeBot response={'Hello there!'} />)
-  .add('with long text response', () => <MeBot response={LONGTEXT} />)
+
+storiesOf('Bot', module)
+  .add('with message and links', () => <Bot showLinks={true} message={'Hello!'} />);

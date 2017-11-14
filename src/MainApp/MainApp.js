@@ -15,9 +15,15 @@ export default function MainApp(props) {
         }
     })
 
+    const defaultMessage = 'Welcome to my website! Please check out the links below, or ask me something!';
+    let message = props.message ? props.message : defaultMessage;
+    
     return (
         <div className={css(styles.wrapper)}>
-            <Bot />
+            <Bot 
+                message={message}
+                showLinks={true}
+            />
         </div>
     )
 }
