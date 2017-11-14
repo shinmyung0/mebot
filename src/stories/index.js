@@ -10,9 +10,9 @@ import LONGTEXT  from './fixtures';
 
 
 // Components to test
-import Bot from '../MainApp/Bot';
+import MainView from '../MainView/MainView';
 
 
 
-storiesOf('Bot', module)
-  .add('with message and links', () => <Bot showLinks={true} message={'Hello!'} />);
+storiesOf('MainView', module)
+  .add('what the default landing page looks like', () => <MainView />);

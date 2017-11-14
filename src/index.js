@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import register from './registerServiceWorker';
-import MainApp from './MainApp/MainApp';
+
+import MainView from './MainView/MainView';
 
 
-ReactDOM.render(<MainApp />, document.getElementById('root'));
+ReactDOM.render(<MainView />, document.getElementById('root'));
 register();

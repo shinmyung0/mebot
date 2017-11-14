@@ -1,9 +1,11 @@
 import React from 'react';
 import {css, StyleSheet} from 'aphrodite';
-import Bot from './Bot';
+import {observer} from 'mobx-react';
 
+import Bot from './Bot/Bot';
+import store from '../AppStore/AppStore';
 
-export default function MainApp(props) {
+function MainView(props) {
 
     const styles = StyleSheet.create({
         wrapper: {
@@ -15,15 +17,16 @@ export default function MainApp(props) {
         }
     })
 
-    const defaultMessage = 'Welcome to my website! Please check out the links below, or ask me something!';
-    let message = props.message ? props.message : defaultMessage;
-    
     return (
         <div className={css(styles.wrapper)}>
             <Bot 
-                message={message}
+                message={store.currentMessage}
                 showLinks={true}
             />
         </div>
     )
 }
+
+
+
+export default observer(MainView);
