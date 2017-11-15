@@ -14,7 +14,11 @@ class LinkBubbles extends React.Component {
 
     setMessageOnMouseOver(msg) {
         
-        return () => { store.currentMessage = msg }
+        return () => { store.currentMessage = msg; };
+    }
+
+    toggleInputMode() {
+        store.isInputMode = !store.isInputMode;
     }
 
     render() {
@@ -23,7 +27,7 @@ class LinkBubbles extends React.Component {
             wrapper: {
                 paddingTop: '1em',
                 paddingBottom: '1em',
-                display: 'flex'
+                display: 'flex',
     
             },
             linkItem: {
@@ -58,14 +62,18 @@ class LinkBubbles extends React.Component {
         const githubMsg = "That's my Github";
         const mediumMsg = "That's my Medium blog";
         const chatMsg = "Click on that to chat with me!";
+
+        const isInputMode = store.isInputMode;
     
         return (
             <div className={css(styles.wrapper, !this.props.shown && styles.hidden)}>
-                <LinkItem alt='linkedInIcon' iconImg={linkedInIcon} link={linkedInLink} iconWidth='65%' onMouseOver={this.setMessageOnMouseOver(linkedInMsg)} />
-                <LinkItem alt='mediumIcon' iconImg={mediumIcon} link={mediumLink} iconWidth='65%' onMouseOver={this.setMessageOnMouseOver(mediumMsg)}  />
-                <LinkItem alt='githubIcon' iconImg={githubIcon} link={githubLink} iconWidth='70%' onMouseOver={this.setMessageOnMouseOver(githubMsg)}  />
+                <LinkItem hidden={isInputMode} alt='linkedInIcon' iconImg={linkedInIcon} link={linkedInLink} iconWidth='65%' onMouseOver={this.setMessageOnMouseOver(linkedInMsg)} />
+                <LinkItem hidden={isInputMode} alt='mediumIcon' iconImg={mediumIcon} link={mediumLink} iconWidth='65%' onMouseOver={this.setMessageOnMouseOver(mediumMsg)}  />
+                <LinkItem hidden={isInputMode} alt='githubIcon' iconImg={githubIcon} link={githubLink} iconWidth='70%' onMouseOver={this.setMessageOnMouseOver(githubMsg)}  />
                 
-                <div className={css(styles.linkItem)} onMouseOver={this.setMessageOnMouseOver(chatMsg)}>
+                <GuestInputField hidden={!isInputMode} />
+
+                <div className={css(styles.linkItem)} onMouseOver={!isInputMode && this.setMessageOnMouseOver(chatMsg)} onClick={this.toggleInputMode}>
                     <img className={css(styles.chatIcon)} src={chatIcon} alt='chatIcon' />
                 </div>
             </div>
@@ -75,3 +83,32 @@ class LinkBubbles extends React.Component {
 }
 
 export default observer(LinkBubbles);
+
+
+
+function GuestInputField(props) {
+    const styles = StyleSheet.create({
+        wrapper: {
+            display: 'grid',
+            alignItems: 'center'
+        },
+        input: {
+            border: 0,
+            borderBottom: '3px solid #d6d6d6',
+            fontSize: '1em',
+            fontWeight: 'bold',
+            height: '2em',
+            outline: 'none',
+            fontFamily: '"Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace',
+        },
+        hidden: {
+            display: 'none'
+        }
+    });
+
+    return (
+        <div className={css(styles.wrapper, props.hidden && styles.hidden)}>
+            <input className={css(styles.input)} type='text' />
+        </div>
+    );
+}

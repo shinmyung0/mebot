@@ -29,13 +29,16 @@ export default function LinkItem(props) {
             display: 'grid',
             alignItems: 'center',
             justifyItems: 'center',
+        },
+        hidden: {
+            display: 'none'
         }
     });
 
 
 
     return (
-        <div onMouseOver={props.onMouseOver} onMouseOut={props.onMouseOut} className={css(styles.linkItem)}>
+        <div onMouseOver={props.onMouseOver} onMouseOut={props.onMouseOut} className={css(styles.linkItem, props.hidden && styles.hidden)}>
             <a className={css(styles.linkWrapper)} href={props.link}>
                 <img className={css(styles.icon)} src={props.iconImg} alt={props.alt} />
             </a>

@@ -6,7 +6,8 @@ class AppStore {
     
     constructor() {
         extendObservable(this, {
-            currentMessage: defaultMessage
+            currentMessage: defaultMessage,
+            isInputMode: false
         });
     }
 
