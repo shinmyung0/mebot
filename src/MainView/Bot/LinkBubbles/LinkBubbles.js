@@ -7,6 +7,7 @@ import mediumIcon from './icons/medium-icon.png';
 import githubIcon from './icons/github-icon.png';
 import chatIcon from './icons/chat-icon.png';
 import LinkItem from './LinkItem';
+import GuestTextInput from './GuestTextInput';
 import store from '../../../AppStore/AppStore';
 
 
@@ -21,6 +22,8 @@ class LinkBubbles extends React.Component {
         store.isInputMode = !store.isInputMode;
     }
 
+
+
     render() {
 
         const styles = StyleSheet.create({
@@ -28,7 +31,6 @@ class LinkBubbles extends React.Component {
                 paddingTop: '1em',
                 paddingBottom: '1em',
                 display: 'flex',
-    
             },
             linkItem: {
                 background: '#d6d6d6',
@@ -71,9 +73,9 @@ class LinkBubbles extends React.Component {
                 <LinkItem hidden={isInputMode} alt='mediumIcon' iconImg={mediumIcon} link={mediumLink} iconWidth='65%' onMouseOver={this.setMessageOnMouseOver(mediumMsg)}  />
                 <LinkItem hidden={isInputMode} alt='githubIcon' iconImg={githubIcon} link={githubLink} iconWidth='70%' onMouseOver={this.setMessageOnMouseOver(githubMsg)}  />
                 
-                <GuestInputField hidden={!isInputMode} />
+                <GuestTextInput hidden={!isInputMode} />
 
-                <div className={css(styles.linkItem)} onMouseOver={!isInputMode && this.setMessageOnMouseOver(chatMsg)} onClick={this.toggleInputMode}>
+                <div className={css(styles.linkItem)} onMouseOver={isInputMode? null : this.setMessageOnMouseOver(chatMsg)} onClick={this.toggleInputMode}>
                     <img className={css(styles.chatIcon)} src={chatIcon} alt='chatIcon' />
                 </div>
             </div>
@@ -85,30 +87,3 @@ class LinkBubbles extends React.Component {
 export default observer(LinkBubbles);
 
 
-
-function GuestInputField(props) {
-    const styles = StyleSheet.create({
-        wrapper: {
-            display: 'grid',
-            alignItems: 'center'
-        },
-        input: {
-            border: 0,
-            borderBottom: '3px solid #d6d6d6',
-            fontSize: '1em',
-            fontWeight: 'bold',
-            height: '2em',
-            outline: 'none',
-            fontFamily: '"Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace',
-        },
-        hidden: {
-            display: 'none'
-        }
-    });
-
-    return (
-        <div className={css(styles.wrapper, props.hidden && styles.hidden)}>
-            <input className={css(styles.input)} type='text' />
-        </div>
-    );
-}
