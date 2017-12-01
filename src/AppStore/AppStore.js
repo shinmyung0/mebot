@@ -1,6 +1,8 @@
 import {extendObservable, action} from 'mobx';
 
 const defaultMessage = 'Welcome to my website! Please check out the links below, or ask me something!';
+const loadingMessage = '...';
+
 
 class AppStore {
     
