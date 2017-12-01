@@ -2,6 +2,8 @@ import React from 'react';
 import {css, StyleSheet} from 'aphrodite';
 import portrait from './portrait.jpg';
 
+import 'src/utils/animate.css';
+
 
 export default function ProfileBubble(prop) {
     
@@ -18,9 +20,10 @@ export default function ProfileBubble(prop) {
                 width: '100%'
             }
         });
-    
+
+
         return (
-            <div className={css(styles.frame)}>
+            <div className={css(styles.frame) + " animated bounceIn"}>
                 <img src={portrait} className={css(styles.pic)} alt="facePic"/>
             </div>
         )

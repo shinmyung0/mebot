@@ -10,6 +10,7 @@ import LinkItem from './LinkItem';
 import GuestTextInput from './GuestTextInput';
 import store from '../../../AppStore/AppStore';
 
+import 'src/utils/animate.css';
 
 class LinkBubbles extends React.Component {
 
@@ -60,15 +61,15 @@ class LinkBubbles extends React.Component {
         const mediumLink = 'https://medium.com/@shinythings';
         const githubLink = 'https://github.com/shinmyung0';
 
-        const linkedInMsg = "That's my Linked In.";
-        const githubMsg = "That's my Github";
-        const mediumMsg = "That's my Medium blog";
-        const chatMsg = "Click on that to chat with me!";
+        const linkedInMsg = "That's my Linked In. Check it out if you want to see my resume.";
+        const githubMsg = "That's my Github. Check it out if you want to check out some of my projects.";
+        const mediumMsg = "That's my Medium blog. I try to write about things I'm interested in. Always looking for more readers!";
+        const chatMsg = "Click on that to chat with me! Actually...a chat bot version of me anyways.";
 
         const isInputMode = store.isInputMode;
     
         return (
-            <div className={css(styles.wrapper, !this.props.shown && styles.hidden)}>
+            <div className={css(styles.wrapper, !this.props.shown && styles.hidden) + " animated fadeIn"}>
                 <LinkItem hidden={isInputMode} alt='linkedInIcon' iconImg={linkedInIcon} link={linkedInLink} iconWidth='65%' onMouseOver={this.setMessageOnMouseOver(linkedInMsg)} />
                 <LinkItem hidden={isInputMode} alt='mediumIcon' iconImg={mediumIcon} link={mediumLink} iconWidth='65%' onMouseOver={this.setMessageOnMouseOver(mediumMsg)}  />
                 <LinkItem hidden={isInputMode} alt='githubIcon' iconImg={githubIcon} link={githubLink} iconWidth='70%' onMouseOver={this.setMessageOnMouseOver(githubMsg)}  />

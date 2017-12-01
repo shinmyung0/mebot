@@ -1,6 +1,7 @@
 import React from 'react';
 import {css, StyleSheet} from 'aphrodite';
 
+import 'src/utils/animate.css';
 
 export default function SpeechBubble(props) {
     const styles = StyleSheet.create({
@@ -36,7 +37,7 @@ export default function SpeechBubble(props) {
 
     return (
         <div className={css(styles.wrapper, 
-                            !props.response && styles.hidden)}>
+                            !props.response && styles.hidden)  + " animated fadeIn"}>
             <p className={css(styles.bubble)}>
                 {props.response}
             </p>
