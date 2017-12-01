@@ -33,10 +33,11 @@ class GuestTextInput extends React.Component {
                 display: 'none'
             }
         });
-    
+        
+        // the ref will place the focus onto the dom element when it is mounted
         return (
             <div className={css(styles.wrapper, this.props.hidden && styles.hidden)}>
-                <input onKeyUpCapture={this.askBot} className={css(styles.input)} type='text' />
+                <input ref={(input) => {input && input.focus();} } onKeyUpCapture={this.askBot} className={css(styles.input)} type='text' />
             </div>
         );
     }
