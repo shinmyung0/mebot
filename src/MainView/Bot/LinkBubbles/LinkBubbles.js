@@ -21,6 +21,9 @@ class LinkBubbles extends React.Component {
 
     toggleInputMode() {
         store.isInputMode = !store.isInputMode;
+        if (store.isInputMode) {
+            store.currentMessage = 'Ask me anything!';
+        }
     }
 
 
