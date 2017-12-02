@@ -26,8 +26,6 @@ class LinkBubbles extends React.Component {
         }
     }
 
-
-
     render() {
 
         const styles = StyleSheet.create({

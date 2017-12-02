@@ -7,6 +7,20 @@ import 'src/utils/animate.css';
 
 export default function ProfileBubble(prop) {
     
+
+        const floatingKeyframes = {
+            from: {
+                transform: 'translate(0, 0px)'
+            },
+            to: {
+                transform: 'translate(0, -0px)'
+            },
+            '65%': {
+                transform: 'translate(0, 0.3em)'
+            }
+        };
+
+
         const styles = StyleSheet.create({
             frame: {
                 width: '8em',
@@ -16,6 +30,12 @@ export default function ProfileBubble(prop) {
                 overflow: 'hidden',
                 boxShadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)'
             },
+            floating: {  
+                animationName: [floatingKeyframes],
+                animationDuration: '2s',
+                animationIterationCount: 'infinite',
+                animationTimingFunction: 'ease-in-out'
+            },
             pic: {
                 width: '100%'
             }
@@ -23,7 +43,7 @@ export default function ProfileBubble(prop) {
 
 
         return (
-            <div className={css(styles.frame) + " animated bounceIn"}>
+            <div className={css(styles.frame, styles.floating) + " animated bounceIn"}>
                 <img src={portrait} className={css(styles.pic)} alt="facePic"/>
             </div>
         )
