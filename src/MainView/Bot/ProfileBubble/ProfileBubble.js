@@ -5,8 +5,26 @@ import portrait from './portrait.jpg';
 import 'src/utils/animate.css';
 
 
-export default function ProfileBubble(prop) {
-    
+class ProfileBubble extends React.Component {
+
+
+    constructor(props) {
+        super(props);
+        this.state = {isLoaded:false};
+        this.startFloating = this.startFloating.bind(this);
+    }
+
+    componentDidMount() {
+        setInterval(this.startFloating, 1000);
+    }
+
+    startFloating() {
+        this.setState({
+            isLoaded: true
+        });
+    }
+
+    render() {
 
         const floatingKeyframes = {
             from: {
@@ -19,7 +37,6 @@ export default function ProfileBubble(prop) {
                 transform: 'translate(0, 0.3em)'
             }
         };
-
 
         const styles = StyleSheet.create({
             frame: {
@@ -41,10 +58,12 @@ export default function ProfileBubble(prop) {
             }
         });
 
-
         return (
-            <div className={css(styles.frame, styles.floating) + " animated bounceIn"}>
+            <div className={css(styles.frame, this.state.isLoaded && styles.floating) + " animated bounceIn"}>
                 <img src={portrait} className={css(styles.pic)} alt="facePic"/>
             </div>
-        )
+        );
     }
+}
+
+export default ProfileBubble;

@@ -70,7 +70,7 @@ class LinkBubbles extends React.Component {
         const isInputMode = store.isInputMode;
     
         return (
-            <div className={css(styles.wrapper, !this.props.shown && styles.hidden) + " animated fadeIn"}>
+            <div className={css(styles.wrapper, !this.props.shown && styles.hidden) + " animated bounce"}>
                 <LinkItem hidden={isInputMode} alt='linkedInIcon' iconImg={linkedInIcon} link={linkedInLink} iconWidth='65%' onMouseOver={this.setMessageOnMouseOver(linkedInMsg)} />
                 <LinkItem hidden={isInputMode} alt='mediumIcon' iconImg={mediumIcon} link={mediumLink} iconWidth='65%' onMouseOver={this.setMessageOnMouseOver(mediumMsg)}  />
                 <LinkItem hidden={isInputMode} alt='githubIcon' iconImg={githubIcon} link={githubLink} iconWidth='70%' onMouseOver={this.setMessageOnMouseOver(githubMsg)}  />
