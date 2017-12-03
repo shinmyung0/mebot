@@ -15,18 +15,34 @@ function MainView(props) {
             alignItems: 'center',
             justifyItems: 'center'
         }
-    })
+    });
+
+    let response = null;
+    if (store.customRes) {
+        response = handleCustomResponses(store.customRes);
+    } else {
+        response = store.currentMessage;
+    }
 
     return (
         <div className={css(styles.wrapper)}>
             <Bot 
-                message={store.currentMessage}
+                message={response}
                 showLinks={true}
             />
         </div>
-    )
+    );
 }
 
+
+function handleCustomResponses(customRes) {
+    switch(customRes.responseType) {
+        case "gif":
+            return <img src={customRes.payload.link} height="200px" alt="resImg" />;
+        default:
+            return "Come again?";
+    }
+}
 
 
 export default observer(MainView);

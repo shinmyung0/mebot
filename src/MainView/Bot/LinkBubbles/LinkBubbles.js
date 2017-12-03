@@ -81,7 +81,7 @@ class LinkBubbles extends React.Component {
                     <img className={css(styles.chatIcon)} src={chatIcon} alt='chatIcon' />
                 </div>
             </div>
-        )
+        );
     }
     
 }

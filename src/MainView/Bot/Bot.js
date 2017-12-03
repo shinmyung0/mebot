@@ -12,28 +12,27 @@ export default function Bot(props) {
         wrapper: {
             display: 'grid',
             gridTemplateColumns: '100%',
-            gridAutoRows: '1fr',
+            gridTemplateRows: '1fr 12em 1fr', 
             minWidth: '30em',
-            minHeight: '30em'
+            minHeight: '100vh'
         },
         speechWrapper: {
             display: 'grid',
             alignItems: 'end',
-            justifyItems: 'center',
+            justifyItems: 'center'
         },
         profileWrapper: {
             display: 'grid',
             alignItems: 'center',
-            justifyItems: 'center',
+            justifyItems: 'center'
         },
         bubbleWrapper: {
             display: 'grid',
-            alignItems: 'center',
-            justifyItems: 'center',
+            alignItems: 'start',
+            justifyItems: 'center'
         }
-    })
-    
-    
+    });
+
     return (
         <div className={css(styles.wrapper)}>
             <div className={css(styles.speechWrapper)}>
