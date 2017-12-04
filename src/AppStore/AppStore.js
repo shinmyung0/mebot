@@ -11,7 +11,7 @@ class AppStore {
         extendObservable(this, {
             currentMessage: defaultMessage,
             customRes: null,
-            isInputMode: false,
+            inputMode: 'links',
             sayToBot: action((msg) => {
                 console.log('Guest said : ' + msg);
                 this.currentMessage = loadingMessage;

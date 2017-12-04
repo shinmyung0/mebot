@@ -28,7 +28,7 @@ function MainView(props) {
         <div className={css(styles.wrapper)}>
             <Bot 
                 message={response}
-                showLinks={true}
+                mode={store.inputMode}
             />
         </div>
     );

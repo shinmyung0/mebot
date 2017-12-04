@@ -3,8 +3,8 @@ import {css, StyleSheet} from 'aphrodite';
 
 import ProfileBubble from './ProfileBubble/ProfileBubble';
 import SpeechBubble from './SpeechBubble/SpeechBubble';
-import LinkBubbles from './LinkBubbles/LinkBubbles';
 
+import GuestInteractionSection from './GuestInteractionSection/GuestInteractionSection';
 
 export default function Bot(props) {
     
@@ -44,8 +44,7 @@ export default function Bot(props) {
             
             </div>
             <div className={css(styles.bubbleWrapper)}>
-                <LinkBubbles shown={props.showLinks}/>
-            
+                <GuestInteractionSection mode={props.mode} />
             </div>
         </div>
     )

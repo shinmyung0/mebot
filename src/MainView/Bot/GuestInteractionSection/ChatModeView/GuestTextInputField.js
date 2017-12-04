@@ -2,15 +2,14 @@ import React from 'react';
 import {css, StyleSheet} from 'aphrodite';
 import {observer} from 'mobx-react';
 
-import store from '../../../AppStore/AppStore';
+import store from 'src/AppStore/AppStore';
 
-class GuestTextInput extends React.Component {
+class GuestTextInputField extends React.Component {
 
     askBot(event) {
         if (event.keyCode === 13) {
             store.sayToBot(event.target.value);
         }
-
     }
 
 
@@ -18,11 +17,13 @@ class GuestTextInput extends React.Component {
         const styles = StyleSheet.create({
             wrapper: {
                 display: 'grid',
-                alignItems: 'center'
+                alignItems: 'center',
+                width: '100%'
             },
             input: {
                 border: 0,
                 borderBottom: '3px solid #d6d6d6',
+                textAlign: 'center',
                 fontSize: '1em',
                 fontWeight: 'bold',
                 height: '2em',
@@ -43,4 +44,4 @@ class GuestTextInput extends React.Component {
     }
 }
 
-export default observer(GuestTextInput);
+export default observer(GuestTextInputField);
