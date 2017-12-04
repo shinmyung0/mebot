@@ -47,7 +47,7 @@ export default function Bot(props) {
                 <GuestInteractionSection mode={props.mode} />
             </div>
         </div>
-    )
+    );
 }
 
 
