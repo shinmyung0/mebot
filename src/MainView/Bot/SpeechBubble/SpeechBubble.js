@@ -2,6 +2,8 @@ import React from 'react';
 import {css, StyleSheet} from 'aphrodite';
 
 import 'src/utils/animate.css';
+import {OnMobileQuery} from 'src/utils/constants.js';
+
 
 export default function SpeechBubble(props) {
     const styles = StyleSheet.create({
@@ -27,7 +29,12 @@ export default function SpeechBubble(props) {
             padding: '1em',
             paddingLeft: '1em',
             borderRadius: '0.5em',
-            margin: 0
+            margin: 0,
+            [OnMobileQuery]: {
+                maxHeight: '9em',
+                fontSize: '0.9em'
+            }
+            
         },
         hidden: {
             display: 'none'

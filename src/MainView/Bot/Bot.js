@@ -14,12 +14,12 @@ export default function Bot(props) {
             gridTemplateColumns: '100%',
             gridTemplateRows: '1fr 12em 1fr', 
             minWidth: '30em',
-            minHeight: '100vh'
+            minHeight: '100vh',
         },
         speechWrapper: {
             display: 'grid',
             alignItems: 'end',
-            justifyItems: 'center'
+            justifyItems: 'center',
         },
         profileWrapper: {
             display: 'grid',

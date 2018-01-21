@@ -2,8 +2,11 @@ import React from 'react';
 import {css, StyleSheet} from 'aphrodite';
 import {observer} from 'mobx-react';
 
+
 import Bot from './Bot/Bot';
 import store from '../AppStore/AppStore';
+import {OnMobileQuery} from '../utils/constants.js';
+
 
 function MainView(props) {
 
@@ -37,8 +40,19 @@ function MainView(props) {
 
 function handleCustomResponses(customRes) {
     switch(customRes.responseType) {
+        
         case "gif":
-            return <img src={customRes.payload.link} height="200px" alt="resImg" />;
+
+            let gifStyle = StyleSheet.create({
+                img: {
+                    height: '12em',
+                    [OnMobileQuery]: {
+                        height: '9em',
+                    }
+                }
+            });
+
+            return <img src={customRes.payload.link} className={css(gifStyle.img)} alt="responseGif" />;
         default:
             return "Come again?";
     }
