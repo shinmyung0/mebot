@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { ApiAiRequestError } from "../Errors";
 import XhrRequest from "../XhrRequest";
 class Request {

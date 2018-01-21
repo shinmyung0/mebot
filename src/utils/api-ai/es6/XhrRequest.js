@@ -1,3 +1,6 @@
+/* eslint-disable */
+
+
 /**
  * quick ts implementation of example from
  * https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise

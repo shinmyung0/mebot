@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 export var IStreamClient;
 (function (IStreamClient) {
     let ERROR;
