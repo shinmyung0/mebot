@@ -18,7 +18,6 @@ class AppStore {
                 this.customRes = null;
                 client.textRequest(msg)
                         .then((res) => {
-                            console.log(res);
                             let customRes = res.result.fulfillment.messages.find((e) => {
                                 return e.type === 4;
                             });

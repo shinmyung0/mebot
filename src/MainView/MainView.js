@@ -16,7 +16,7 @@ function MainView(props) {
             height: '100vh',
             display: 'grid',
             alignItems: 'center',
-            justifyItems: 'center'
+            justifyItems: 'center',
         }
     });
 
