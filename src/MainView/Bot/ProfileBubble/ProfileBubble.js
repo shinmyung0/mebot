@@ -3,7 +3,7 @@ import {css, StyleSheet} from 'aphrodite';
 import portrait from './portrait.jpg';
 
 import 'src/utils/animate.css';
-
+import { profileBubbleBorderColor } from '../../../utils/constants';
 
 class ProfileBubble extends React.Component {
 
@@ -42,7 +42,7 @@ class ProfileBubble extends React.Component {
             frame: {
                 width: '8em',
                 height: '8em',
-                border: '4px solid grey',
+                border: '4px solid ' + profileBubbleBorderColor,
                 borderRadius: '50%',
                 overflow: 'hidden',
                 boxShadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)'

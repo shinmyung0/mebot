@@ -4,6 +4,7 @@ import {css, StyleSheet} from 'aphrodite';
 import 'src/utils/animate.css';
 import {OnMobileQuery} from 'src/utils/constants.js';
 
+import {speechBubbleColor} from 'src/utils/constants.js';
 
 export default function SpeechBubble(props) {
     const styles = StyleSheet.create({
@@ -19,12 +20,12 @@ export default function SpeechBubble(props) {
             height: 0,
             borderLeft: '10px solid transparent',
             borderRight: '10px solid transparent',
-            borderTop: '10px solid #e9ebee',
+            borderTop: '10px solid ' + speechBubbleColor,
             margin: 0
         },
         bubble: {
             fontFamily: '"Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace',
-            background: '#e9ebee',
+            background: speechBubbleColor,
             fontSize: '1em',
             padding: '1em',
             paddingLeft: '1em',

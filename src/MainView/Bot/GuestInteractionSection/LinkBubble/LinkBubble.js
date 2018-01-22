@@ -1,12 +1,13 @@
 import React from 'react';
 import {css, StyleSheet} from 'aphrodite';
 
+import {floatingButtonColor} from 'src/utils/constants.js';
 
 export default function LinkBubble(props) {
     const styles = StyleSheet.create({
         linkItem: {
-            background: '#d6d6d6',
-            border: '1px solid #d6d6d6',
+            background: floatingButtonColor,
+            border: '1px solid ' + floatingButtonColor,
             borderRadius: '50%',
             width: '3em',
             height: '3em',

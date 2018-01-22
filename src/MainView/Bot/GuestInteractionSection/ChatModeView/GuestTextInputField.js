@@ -4,6 +4,8 @@ import {observer} from 'mobx-react';
 
 import store from 'src/AppStore/AppStore';
 
+import {floatingButtonColor} from 'src/utils/constants.js';
+
 class GuestTextInputField extends React.Component {
 
     askBot(event) {
@@ -22,7 +24,7 @@ class GuestTextInputField extends React.Component {
             },
             input: {
                 border: 0,
-                borderBottom: '3px solid #d6d6d6',
+                borderBottom: '3px solid ' + floatingButtonColor,
                 textAlign: 'center',
                 fontSize: '1em',
                 fontWeight: 'bold',

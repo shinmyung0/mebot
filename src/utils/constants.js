@@ -1,12 +1,13 @@
 // Main breakpoint
 export const OnMobileQuery = "@media (max-aspect-ratio: 1/1)";
 
-// Color Palette - Material Design
-export const primaryColor = "#00bcd4";
-export const primaryLight = "#62efff";
-export const primaryDark = "#008ba3";
+// Theme
+const primaryColor = "#7986cb";
+const primaryLight = "#e8eaf6";
 
-export const secondaryColor = "#ffff8d";
-export const secondaryLight = "#ffffbf";
-export const secondaryDark = "#cacc5d";
+
+// Color Controls
+export const profileBubbleBorderColor = primaryColor;
+export const speechBubbleColor = primaryLight;
+export const floatingButtonColor = primaryLight;
 
