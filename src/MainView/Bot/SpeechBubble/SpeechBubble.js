@@ -12,7 +12,7 @@ export default function SpeechBubble(props) {
             display: 'grid',
             alignItems: 'top',
             justifyItems: 'center',
-            paddingBottom: '0.5em'
+            paddingBottom: '0.5em',
         },
         bottomArrow: {
             width: 0,

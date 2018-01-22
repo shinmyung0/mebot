@@ -13,10 +13,10 @@ function MainView(props) {
     const styles = StyleSheet.create({
         wrapper: {
             width: '100vw',
-            height: '100vh',
+            minHeight: '100vh',
             display: 'grid',
             alignItems: 'center',
-            justifyItems: 'center',
+            justifyItems: 'center'
         }
     });
 
