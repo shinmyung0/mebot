@@ -1,8 +1,8 @@
 import React from 'react';
-import {css, StyleSheet} from 'aphrodite';
+import { css, StyleSheet } from 'aphrodite';
 import portrait from './portrait.jpg';
 
-import 'src/utils/animate.css';
+import 'utils/animate.css';
 import { profileBubbleBorderColor } from '../../../utils/constants';
 
 class ProfileBubble extends React.Component {
@@ -10,7 +10,7 @@ class ProfileBubble extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {isLoaded:false};
+        this.state = { isLoaded: false };
         this.startFloating = this.startFloating.bind(this);
     }
 
@@ -47,7 +47,7 @@ class ProfileBubble extends React.Component {
                 overflow: 'hidden',
                 boxShadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)'
             },
-            floating: {  
+            floating: {
                 animationName: [floatingKeyframes],
                 animationDuration: '2s',
                 animationIterationCount: 'infinite',
@@ -60,7 +60,7 @@ class ProfileBubble extends React.Component {
 
         return (
             <div className={css(styles.frame, this.state.isLoaded && styles.floating) + " animated bounceIn"}>
-                <img src={portrait} className={css(styles.pic)} alt="facePic"/>
+                <img src={portrait} className={css(styles.pic)} alt="facePic" />
             </div>
         );
     }

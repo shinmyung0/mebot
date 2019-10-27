@@ -1,7 +1,7 @@
 import React from 'react';
-import {css, StyleSheet} from 'aphrodite';
+import { css, StyleSheet } from 'aphrodite';
 
-import {floatingButtonColor} from 'src/utils/constants.js';
+import { floatingButtonColor } from 'utils/constants.js';
 
 export default function LinkBubble(props) {
     const styles = StyleSheet.create({
@@ -40,9 +40,9 @@ export default function LinkBubble(props) {
 
     return (
         <div className={css(styles.linkItem, props.hidden && styles.hidden)}
-             onMouseOver={props.onMouseOver} 
-             onMouseOut={props.onMouseOut} 
-             onClick={props.onClick}>
+            onMouseOver={props.onMouseOver}
+            onMouseOut={props.onMouseOut}
+            onClick={props.onClick}>
             <a className={css(styles.linkWrapper)} href={props.link}>
                 <img className={css(styles.icon)} src={props.iconImg} alt={props.alt} />
             </a>
