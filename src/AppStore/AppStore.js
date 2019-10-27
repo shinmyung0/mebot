@@ -1,4 +1,4 @@
-import {extendObservable, action} from 'mobx';
+import { extendObservable, action } from 'mobx';
 import client from './BotClient';
 
 
@@ -6,7 +6,7 @@ const defaultMessage = 'Welcome to my website! Please check out the links below,
 const loadingMessage = '...';
 
 class AppStore {
-    
+
     constructor() {
         extendObservable(this, {
             currentMessage: defaultMessage,
@@ -17,23 +17,23 @@ class AppStore {
                 this.currentMessage = loadingMessage;
                 this.customRes = null;
                 client.textRequest(msg)
-                        .then((res) => {
-                            let customRes = res.result.fulfillment.messages.find((e) => {
-                                return e.type === 4;
-                            });
-
-                            if (customRes) {
-                                this.customRes = customRes.payload;
-                                this.currentMessage = loadingMessage;
-                            } else {
-                                this.currentMessage = res.result.fulfillment.speech || 'Come again?';
-                            }
-                        })
-                        .catch((err) => {
-                            console.error(err);
-                            this.currentMessage = 'Oops something went wrong...I seem to be experienceing technical issues :(';
-
+                    .then((res) => {
+                        let customRes = res.result.fulfillment.messages.find((e) => {
+                            return e.type === 4;
                         });
+
+                        if (customRes) {
+                            this.customRes = customRes.payload;
+                            this.currentMessage = loadingMessage;
+                        } else {
+                            this.currentMessage = res.result.fulfillment.speech || 'Come again?';
+                        }
+                    })
+                    .catch((err) => {
+                        console.error(err);
+                        this.currentMessage = 'Oops something went wrong...I seem to be experiencing technical issues :(';
+
+                    });
             })
         });
     }
