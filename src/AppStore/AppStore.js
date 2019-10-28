@@ -1,5 +1,5 @@
 import { extendObservable, action } from 'mobx';
-import dialogflowClient from './BotClient';
+import sayToBot from './DialogFlowClient';
 
 
 const defaultMessage = 'Welcome to my website! Please check out the links below, or ask me something!';
@@ -22,25 +22,24 @@ class AppStore {
     }
 
     sendGuestMessageToBot(msg) {
-        dialogflowClient.textRequest(msg)
-            .then((res) => {
-                let customRes = res.result.fulfillment.messages.find((e) => {
-                    return e.type === 4;
-                });
 
-                if (customRes) {
-                    this.customRes = customRes.payload;
-                    this.currentMessage = loadingMessage;
+        const fallBackMessage = 'Oops something went wrong...I seem to be experiencing technical issues :(';
+
+        sayToBot(msg)
+            .then((res) => {
+                if (res.responseType === "text") {
+                    this.currentMessage = res.response;
+
                 } else {
-                    this.currentMessage = res.result.fulfillment.speech || 'Come again?';
+                    console.error("Response object was incorrectly formatted")
+                    console.error(JSON.stringify(res))
+                    this.currentMessage = fallBackMessage;
                 }
             })
             .catch((err) => {
                 console.error(err);
-                this.currentMessage = 'Oops something went wrong...I seem to be experiencing technical issues :(';
-
-            });
-
+                this.currentMessage = fallBackMessage;
+            })
     }
 
 }

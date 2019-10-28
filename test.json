@@ -1,0 +1,84 @@
+[
+    {
+        "responseId": "978e806e-a5af-4426-8e37-d534d624e294-d5ae01f3",
+        "queryResult": {
+            "fulfillmentMessages": [
+                {
+                    "platform": "PLATFORM_UNSPECIFIED",
+                    "payload": {
+                        "fields": {
+                            "payload": {
+                                "structValue": {
+                                    "fields": {
+                                        "link": {
+                                            "stringValue": "http://i.imgur.com/Zg2zVlb.jpg",
+                                            "kind": "stringValue"
+                                        }
+                                    }
+                                },
+                                "kind": "structValue"
+                            },
+                            "responseType": {
+                                "stringValue": "gif",
+                                "kind": "stringValue"
+                            }
+                        }
+                    },
+                    "message": "payload"
+                },
+                {
+                    "platform": "PLATFORM_UNSPECIFIED",
+                    "text": {
+                        "text": [
+                            "I'm a bit confused by that last part."
+                        ]
+                    },
+                    "message": "text"
+                }
+            ],
+            "outputContexts": [],
+            "queryText": "What is a fourier transform?",
+            "speechRecognitionConfidence": 0,
+            "action": "input.unknown",
+            "parameters": {
+                "fields": {}
+            },
+            "allRequiredParamsPresent": true,
+            "fulfillmentText": "I'm a bit confused by that last part.",
+            "webhookSource": "",
+            "webhookPayload": null,
+            "intent": {
+                "inputContextNames": [],
+                "events": [],
+                "trainingPhrases": [],
+                "outputContexts": [],
+                "parameters": [],
+                "messages": [],
+                "defaultResponsePlatforms": [],
+                "followupIntentInfo": [],
+                "name": "projects/job-interview-b23b0/agent/intents/62f53181-2f82-4967-a8ca-fec05c13c12c",
+                "displayName": "Default Fallback Intent",
+                "priority": 0,
+                "isFallback": true,
+                "webhookState": "WEBHOOK_STATE_UNSPECIFIED",
+                "action": "",
+                "resetContexts": false,
+                "rootFollowupIntentName": "",
+                "parentFollowupIntentName": "",
+                "mlDisabled": false
+            },
+            "intentDetectionConfidence": 1,
+            "diagnosticInfo": null,
+            "languageCode": "en",
+            "sentimentAnalysisResult": null
+        },
+        "webhookStatus": null,
+        "outputAudio": {
+            "type": "Buffer",
+            "data": []
+        },
+        "outputAudioConfig": null
+    },
+    null,
+    null
+]
