@@ -1,5 +1,4 @@
 const dialogflow = require("dialogflow");
-const uuid = require("uuid");
 
 const sessionClient = new dialogflow.SessionsClient();
 // A unique identifier for the given session
@@ -28,10 +27,6 @@ async function sayToBot(message, sessionId) {
   // Send request and log result
   const responses = await sessionClient.detectIntent(request);
   const result = responses[0].queryResult;
-  let intent = null;
-  if (result.intent) {
-    intent = result.intent.displayName;
-  }
 
   let botResponse = {
     type: "text",
