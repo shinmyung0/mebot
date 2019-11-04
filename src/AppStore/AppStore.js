@@ -1,45 +1,67 @@
-import {extendObservable, action} from 'mobx';
-import client from './BotClient';
+import { extendObservable, action } from "mobx";
 
+import uuid from "uuid";
 
-const defaultMessage = 'Welcome to my website! Please check out the links below, or ask me something!';
-const loadingMessage = '...';
+const sessionId = uuid.v4();
+const defaultMessage =
+  "Welcome to my website! Please check out the links below, or ask me something!";
+const fallBackMessage =
+  "Oops something went wrong...I seem to be experiencing technical issues :(";
+const huhMessage = "huh?";
+const loadingMessage = "...";
+const askApi = process.env.REACT_APP_ASK_API;
 
 class AppStore {
-    
-    constructor() {
-        extendObservable(this, {
-            currentMessage: defaultMessage,
-            customRes: null,
-            inputMode: 'links',
-            sayToBot: action((msg) => {
-                console.log('Guest said : ' + msg);
-                this.currentMessage = loadingMessage;
-                this.customRes = null;
-                client.textRequest(msg)
-                        .then((res) => {
-                            let customRes = res.result.fulfillment.messages.find((e) => {
-                                return e.type === 4;
-                            });
+  constructor() {
+    extendObservable(this, {
+      currentMessage: defaultMessage,
+      customRes: null,
+      inputMode: "links",
+      sayToBot: action(msg => {
+        console.log("Guest said : " + msg);
+        this.currentMessage = loadingMessage;
+        this.customRes = null;
+        this.sendGuestMessageToBot(msg);
+      })
+    });
+  }
 
-                            if (customRes) {
-                                this.customRes = customRes.payload;
-                                this.currentMessage = loadingMessage;
-                            } else {
-                                this.currentMessage = res.result.fulfillment.speech || 'Come again?';
-                            }
-                        })
-                        .catch((err) => {
-                            console.error(err);
-                            this.currentMessage = 'Oops something went wrong...I seem to be experienceing technical issues :(';
+  sendGuestMessageToBot(msg) {
+    this.currentMessage = loadingMessage;
+    if (msg !== "") {
+      fetch(`${askApi}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          sessionId: sessionId,
+          message: msg
+        })
+      })
+        .then(response => {
+          if (!response.ok) {
+            this.currentMessage = fallBackMessage;
+            throw Error("Bot API returned an error.");
+          }
 
-                        });
-            })
+          return response.json();
+        })
+        .then(response => {
+          if (response.type === "text") {
+            this.currentMessage = response.value;
+          } else {
+            throw Error(`Bot API returned unsupported type=${response.type}`);
+          }
+        })
+        .catch(error => {
+          console.error(error);
         });
+    } else {
+      this.currentMessage = huhMessage;
     }
-
+  }
 }
-
 
 const store = new AppStore();
 

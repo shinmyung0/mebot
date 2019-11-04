@@ -1,10 +1,10 @@
 import React from 'react';
-import {css, StyleSheet} from 'aphrodite';
-import {observer} from 'mobx-react';
+import { css, StyleSheet } from 'aphrodite';
+import { observer } from 'mobx-react';
 
-import store from 'src/AppStore/AppStore';
+import store from 'AppStore/AppStore';
 
-import {floatingButtonColor} from 'src/utils/constants.js';
+import { floatingButtonColor } from 'utils/constants.js';
 
 class GuestTextInputField extends React.Component {
 
@@ -36,11 +36,11 @@ class GuestTextInputField extends React.Component {
                 display: 'none'
             }
         });
-        
+
         // the ref will place the focus onto the dom element when it is mounted
         return (
             <div className={css(styles.wrapper, this.props.hidden && styles.hidden)}>
-                <input ref={(input) => {input && input.focus();} } onKeyUpCapture={this.askBot} className={css(styles.input)} type='text' />
+                <input ref={(input) => { input && input.focus(); }} onKeyUpCapture={this.askBot} className={css(styles.input)} type='text' />
             </div>
         );
     }

@@ -1,7 +1,7 @@
 import React from 'react';
-import {css, StyleSheet} from 'aphrodite';
+import { css, StyleSheet } from 'aphrodite';
 
-import store from 'src/AppStore/AppStore';
+import store from 'AppStore/AppStore';
 import backArrowIcon from './icons/back-arrow.png';
 import LinkBubble from '../LinkBubble/LinkBubble';
 import GuestTextInputField from './GuestTextInputField';
@@ -33,7 +33,7 @@ class ChatModeView extends React.Component {
         return (
             <div className={css(styles.wrapper)}>
                 <GuestTextInputField />
-                <LinkBubble iconImg={backArrowIcon} iconWidth='55%' alt='backArrow' onClick={this.backToLinks}/>
+                <LinkBubble iconImg={backArrowIcon} iconWidth='55%' alt='backArrow' onClick={this.backToLinks} />
             </div>
         );
     }

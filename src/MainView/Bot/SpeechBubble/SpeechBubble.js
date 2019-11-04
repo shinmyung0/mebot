@@ -1,10 +1,10 @@
 import React from 'react';
-import {css, StyleSheet} from 'aphrodite';
+import { css, StyleSheet } from 'aphrodite';
 
-import 'src/utils/animate.css';
-import {OnMobileQuery} from 'src/utils/constants.js';
+import 'utils/animate.css';
+import { OnMobileQuery } from 'utils/constants.js';
 
-import {speechBubbleColor} from 'src/utils/constants.js';
+import { speechBubbleColor } from 'utils/constants.js';
 
 export default function SpeechBubble(props) {
     const styles = StyleSheet.create({
@@ -35,7 +35,7 @@ export default function SpeechBubble(props) {
                 maxHeight: '9em',
                 fontSize: '0.9em'
             }
-            
+
         },
         hidden: {
             display: 'none'
@@ -44,8 +44,8 @@ export default function SpeechBubble(props) {
 
 
     return (
-        <div className={css(styles.wrapper, 
-                            !props.response && styles.hidden)  + " animated fadeIn"}>
+        <div className={css(styles.wrapper,
+            !props.response && styles.hidden) + " animated fadeIn"}>
             <p className={css(styles.bubble)}>
                 {props.response}
             </p>
