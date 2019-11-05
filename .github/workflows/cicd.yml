@@ -1,6 +1,12 @@
-name: shinyoon.me CICD
+name: shinyoon.me-cicd
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - ".github/**"
+      - "README.md"
 
 jobs:
   build:
