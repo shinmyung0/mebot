@@ -1,4 +1,4 @@
-name: shinyoon.me-cicd
+name: CICD Action
 
 on:
   push:

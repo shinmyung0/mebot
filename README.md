@@ -1,3 +1,3 @@
-# Mebot [![Build Status](https://travis-ci.org/shinmyung0/mebot.svg?branch=master)](https://travis-ci.org/shinmyung0/mebot)
+# Mebot ![](https://github.com/shinmyung0/mebot/workflows/CICD%20Action/badge.svg)
 
-Personal homepage as a chatbot concept. 
+Personal homepage as a chatbot concept.
