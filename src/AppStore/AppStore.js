@@ -2,14 +2,26 @@ import { extendObservable, action } from "mobx";
 
 import uuid from "uuid";
 
-const sessionId = uuid.v4();
-const defaultMessage =
-  "Welcome to my website! Please check out the links below, or ask me something!";
+const { sessionId, welcomeMessage } = getSessionId();
+const defaultMessage = `${welcomeMessage} Please check out the links below, or ask me something!`;
 const fallBackMessage =
   "Oops something went wrong...I seem to be experiencing technical issues :(";
 const huhMessage = "huh?";
 const loadingMessage = "...";
 const askApi = process.env.REACT_APP_ASK_API;
+
+function getSessionId() {
+  let sessionId = localStorage.getItem("sessionId");
+  let welcomeMessage = "Welcome to my website!";
+  if (sessionId) {
+    console.log(`Existing session ID found: ${sessionId}`);
+    welcomeMessage = "Welcome back!";
+  } else {
+    sessionId = uuid.v4();
+    localStorage.setItem("sessionId", sessionId);
+  }
+  return { sessionId, welcomeMessage };
+}
 
 class AppStore {
   constructor() {
